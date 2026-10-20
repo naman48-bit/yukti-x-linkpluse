@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1b2a">
+  <meta name="description" content="LinkPulse helps you manage short links, campaigns, safety rules, and click analytics in one place.">
+  <title>LinkPulse — Link management, made clear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-shell" id="app-shell">
+    <div class="mobile-scrim" id="mobile-scrim" hidden></div>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" data-view="overview" aria-label="LinkPulse overview">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M12.5 19.5 9.8 22.2a5.2 5.2 0 0 1-7.4-7.4l5-5a5.2 5.2 0 0 1 7.4 0"/><path d="m19.5 12.5 2.7-2.7a5.2 5.2 0 0 1 7.4 7.4l-5 5a5.2 5.2 0 0 1-7.4 0"/><path d="m11.5 20.5 9-9"/></svg></span>
+        <span class="brand-name">Link<span>Pulse</span><small>LINK OPERATIONS</small></span>
+      </a>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Workspace">
+        <button class="nav-item is-active" data-view="overview"><span class="nav-icon" aria-hidden="true">◫</span><span>Overview</span></button>
+        <button class="nav-item" data-view="links"><span class="nav-icon" aria-hidden="true">↗</span><span>Links</span><span class="nav-count" id="nav-link-count">0</span></button>
+        <button class="nav-item" data-view="campaigns"><span class="nav-icon" aria-hidden="true">▤</span><span>Campaigns</span></button>
+        <button class="nav-item" data-view="analytics"><span class="nav-icon" aria-hidden="true">⌁</span><span>Analytics</span></button>
+      </nav>
+
+      <div class="workspace-label nav-label-spaced">CONTROL CENTER</div>
+      <nav class="nav-list" aria-label="Controls">
+        <button class="nav-item" data-view="safety"><span class="nav-icon" aria-hidden="true">⛨</span><span>Safety &amp; admin</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon" aria-hidden="true">⚙</span><span>Settings</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="safety-card">
+          <span class="safety-card-icon" aria-hidden="true">✓</span>
+          <div><strong>Safety first</strong><p>Rules are checked before each demo redirect.</p></div>
+        </div>
+        <div class="profile-row">
+          <div class="avatar">YL</div>
+          <div class="profile-copy"><strong>YUKTI-x</strong><span>Hackathon workspace</span></div>
+          <span class="online-dot" aria-label="Local demo"></span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="icon-button mobile-menu-button" id="mobile-menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong id="breadcrumb-current">Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="local-badge"><span></span> Local demo</span>
+          <button class="button button-primary button-small" id="top-create-link"><span aria-hidden="true">＋</span> Create link</button>
+          <button class="icon-button help-button" id="help-button" aria-label="Open quick guide" title="Quick guide">?</button>
+        </div>
+      </header>
+
+      <main class="main-content" id="main-content" tabindex="-1">
+        <div id="view-root"></div>
+      </main>
+      <footer class="app-footer"><span>LinkPulse <span id="footer-year"></span></span><span>Fast redirects. Trustworthy analytics.</span><span class="footer-demo-dot"><i></i> Browser-only prototype</span></footer>
+    </div>
+  </div>
+
+  <dialog class="modal" id="app-modal" aria-labelledby="modal-title">
+    <div id="modal-content"></div>
+  </dialog>
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
